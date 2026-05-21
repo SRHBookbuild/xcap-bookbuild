@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)file:///C:/Users/SRH%20Surface/Downloads/XCap_Bookbuild_Report_2.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XCap Core Plus Fund — Bookbuild</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./XCap_Bookbuild_Report_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --navy:     #0B1F3A;
+    --navy-mid: #132D52;
+    --navy-lt:  #1D3D6B;
+    --gold:     #C9A84C;
+    --gold-lt:  #E8CC80;
+    --cream:    #F7F4EE;
+    --slate:    #8A9BB5;
+    --border:   rgba(201,168,76,0.18);
+    --white:    #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 20%, rgba(201,168,76,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(29,61,107,0.4) 0%, transparent 60%);
+    pointer-events: none; z-index: 0;
+  }
+  .wrap { position: relative; z-index: 1; max-width: 1240px; margin: 0 auto; padding: 0 28px 60px; }
+
+  /* ── Header ── */
+  .header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    padding: 36px 0 28px; border-bottom: 1px solid var(--border);
+    gap: 20px; flex-wrap: wrap;
+  }
+  .eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+  .fund-name { font-family:'DM Serif Display',serif; font-size:32px; line-height:1.1; color:var(--white); letter-spacing:-.02em; }
+  .fund-name em { font-style:italic; color:var(--gold-lt); }
+  .header-right { text-align:right; }
+  .report-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.12em; color:var(--slate); text-transform:uppercase; margin-bottom:4px; }
+  .report-date { font-size:14px; color:var(--cream); font-weight:300; }
+  .header-actions { display:flex; justify-content:flex-end; align-items:center; gap:8px; margin-top:10px; flex-wrap:wrap; }
+  .live-badge {
+    display:inline-flex; align-items:center; gap:6px;
+    background:rgba(42,107,79,.25); border:1px solid rgba(42,107,79,.5);
+    border-radius:20px; padding:4px 12px; font-size:11px; font-weight:500; color:#6FCDA0;
+  }
+  .live-dot { width:6px; height:6px; border-radius:50%; background:#6FCDA0; animation:pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .btn {
+    display:inline-flex; align-items:center; gap:6px;
+    background:transparent; border:1px solid var(--border); border-radius:6px;
+    padding:7px 14px; color:var(--slate); font-size:12px;
+    font-family:'DM Sans',sans-serif; cursor:pointer; transition:all .2s;
+  }
+  .btn:hover { border-color:var(--gold); color:var(--gold); }
+  .btn-gold { background:rgba(201,168,76,.12); border-color:rgba(201,168,76,.4); color:var(--gold-lt); }
+  .btn-gold:hover { background:rgba(201,168,76,.2); }
+  .btn-teams { background:rgba(100,140,240,.1); border-color:rgba(100,140,240,.35); color:#9ab4f8; }
+  .btn-teams:hover { background:rgba(100,140,240,.2); border-color:rgba(100,140,240,.6); color:#c5d4ff; }
+  .btn:disabled { opacity:0.5; cursor:not-allowed; }
+
+  /* ── Progress bar ── */
+  .progress-wrap { margin: 22px 0 0; }
+  .progress-label { display:flex; justify-content:space-between; margin-bottom:8px; }
+  .progress-label span { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--slate); }
+  .progress-label strong { color:var(--gold-lt); }
+  .progress-track { height:6px; background:rgba(255,255,255,.08); border-radius:6px; overflow:hidden; display:flex; }
+  .progress-seg { height:100%; transition:width .8s ease; }
+
+  /* ── KPIs ── */
+  .kpis { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin:28px 0; }
+  .kpi {
+    background:rgba(255,255,255,.03); border:1px solid var(--border); border-radius:10px;
+    padding:18px 20px; position:relative; overflow:hidden; transition:border-color .2s;
+  }
+  .kpi:hover { border-color:rgba(201,168,76,.4); }
+  .kpi::after { content:''; position:absolute; top:0;left:0;right:0; height:2px; background:linear-gradient(90deg,var(--gold) 0%,transparent 100%); opacity:.5; }
+  .kpi-label { font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--slate); margin-bottom:8px; }
+  .kpi-value { font-family:'DM Serif Display',serif; font-size:34px; line-height:1; color:var(--white); margin-bottom:4px; }
+  .kpi-sub { font-size:11px; color:var(--slate); font-weight:300; }
+
+  /* ── Section head ── */
+  .section-head { display:flex; align-items:center; gap:10px; margin:32px 0 14px; }
+  .section-title { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); white-space:nowrap; }
+  .section-line { flex:1; height:1px; background:var(--border); }
+
+  /* ── Pipeline stage cards ── */
+  .pipeline { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:28px; }
+  .stage-card {
+    background:rgba(255,255,255,.025); border:1px solid var(--border); border-radius:8px;
+    padding:14px 16px; transition:all .2s; cursor:pointer; position:relative;
+  }
+  .stage-card:hover { background:rgba(255,255,255,.05); border-color:rgba(201,168,76,.3); }
+  .stage-card.active-filter { border-color:var(--gold); background:rgba(201,168,76,.08); }
+  .stage-name { font-size:11px; color:var(--slate); margin-bottom:6px; }
+  .stage-count { font-family:'DM Serif Display',serif; font-size:26px; color:var(--white); margin-bottom:8px; }
+  .stage-bar-track { height:2px; background:rgba(255,255,255,.08); border-radius:2px; overflow:hidden; }
+  .stage-bar-fill { height:100%; border-radius:2px; transition:width .8s ease; }
+  .stage-pct { font-family:'DM Mono',monospace; font-size:9px; color:var(--slate); margin-top:4px; }
+
+  /* ── Funnel ── */
+  .funnel-wrap { margin-bottom:28px; }
+  .funnel-row { display:flex; align-items:center; gap:10px; margin-bottom:6px; }
+  .funnel-label { font-size:11px; color:var(--slate); width:170px; flex-shrink:0; text-align:right; }
+  .funnel-bar-track { flex:1; height:18px; background:rgba(255,255,255,.05); border-radius:3px; overflow:hidden; position:relative; }
+  .funnel-bar-fill { height:100%; border-radius:3px; transition:width .8s ease; display:flex; align-items:center; padding-left:8px; }
+  .funnel-bar-val { font-family:'DM Mono',monospace; font-size:10px; color:rgba(255,255,255,.8); font-weight:500; }
+
+  /* ── Breakdown ── */
+  .breakdown { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:32px; }
+  .breakdown-card { background:rgba(255,255,255,.025); border:1px solid var(--border); border-radius:10px; padding:18px 20px; }
+  .breakdown-card-title { font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--slate); margin-bottom:14px; }
+  .breakdown-row { display:flex; justify-content:space-between; align-items:center; padding:7px 0; border-bottom:1px solid rgba(255,255,255,.05); font-size:13px; }
+  .breakdown-row:last-child { border-bottom:none; }
+  .breakdown-row-val { font-weight:600; color:var(--gold-lt); font-family:'DM Mono',monospace; font-size:13px; }
+  .breakdown-bar { flex:1; height:3px; background:rgba(255,255,255,.07); border-radius:2px; margin:0 12px; overflow:hidden; }
+  .breakdown-bar-fill { height:100%; border-radius:2px; background:var(--gold); opacity:.5; }
+
+  /* ── Table ── */
+  .table-controls { display:flex; gap:8px; align-items:center; margin-bottom:14px; flex-wrap:wrap; }
+  .tabs { display:flex; gap:4px; flex-wrap:wrap; }
+  .tab {
+    font-size:12px; padding:6px 14px; border-radius:6px; border:1px solid transparent;
+    background:transparent; color:var(--slate); cursor:pointer;
+    font-family:'DM Sans',sans-serif; transition:all .15s; white-space:nowrap;
+  }
+  .tab:hover { color:var(--white); border-color:var(--border); }
+  .tab.active { background:rgba(201,168,76,.12); border-color:rgba(201,168,76,.35); color:var(--gold-lt); font-weight:500; }
+  .search-input {
+    background:rgba(255,255,255,.05); border:1px solid var(--border); border-radius:6px;
+    padding:7px 12px; color:var(--white); font-size:12px; font-family:'DM Sans',sans-serif;
+    width:180px; outline:none; transition:border-color .2s;
+  }
+  .search-input::placeholder { color:var(--slate); }
+  .search-input:focus { border-color:rgba(201,168,76,.5); }
+  .filter-select {
+    background:rgba(255,255,255,.05); border:1px solid var(--border); border-radius:6px;
+    padding:7px 10px; color:var(--white); font-size:12px;
+    font-family:'DM Sans',sans-serif; outline:none; cursor:pointer;
+  }
+  .filter-select option { background:var(--navy-mid); color:var(--white); }
+  .result-count { font-size:11px; color:var(--slate); margin-left:auto; font-family:'DM Mono',monospace; }
+
+  .table-wrap { background:rgba(255,255,255,.02); border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  thead { background:rgba(201,168,76,.08); }
+  th {
+    text-align:left; padding:11px 14px;
+    font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--gold); font-weight:500;
+    border-bottom:1px solid var(--border); white-space:nowrap; user-select:none;
+    cursor:pointer;
+  }
+  th:hover { color:var(--gold-lt); }
+  th .sort-icon { margin-left:4px; opacity:.4; font-size:9px; }
+  th.sorted .sort-icon { opacity:1; color:var(--gold-lt); }
+  td { padding:11px 14px; border-bottom:1px solid rgba(255,255,255,.04); vertical-align:middle; }
+  tr:last-child td { border-bottom:none; }
+  tr:hover td { background:rgba(255,255,255,.025); }
+  .inv-name { font-weight:500; color:var(--white); }
+  .inv-type { font-size:11px; color:var(--slate); margin-top:2px; }
+  .loc-text { font-size:12px; color:var(--slate); }
+  .date-text { font-family:'DM Mono',monospace; font-size:11px; color:var(--slate); }
+  .note-text { font-size:11px; color:var(--slate); max-width:200px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .badge { display:inline-block; padding:3px 9px; border-radius:4px; font-size:10.5px; font-weight:600; letter-spacing:.02em; white-space:nowrap; }
+
+  .state-msg { text-align:center; padding:40px; color:var(--slate); font-size:13px; }
+  .state-msg .spinner { width:20px; height:20px; border:2px solid rgba(201,168,76,.2); border-top-color:var(--gold); border-radius:50%; animation:spin .8s linear infinite; margin:0 auto 12px; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+  .error-text { color:#FF8080; }
+
+  /* ── Toast ── */
+  .toast {
+    position:fixed; bottom:28px; right:28px; z-index:999;
+    background:var(--navy-mid); border:1px solid var(--border); border-radius:8px;
+    padding:12px 18px; font-size:13px; color:var(--white);
+    box-shadow:0 8px 32px rgba(0,0,0,.4);
+    transform:translateY(20px); opacity:0;
+    transition:all .3s ease; pointer-events:none;
+  }
+  .toast.show { transform:translateY(0); opacity:1; }
+  .toast.success { border-color:rgba(111,205,160,.4); color:#6FCDA0; }
+  .toast.error { border-color:rgba(255,128,128,.4); color:#FF8080; }
+
+  /* ── Print styles ── */
+  @media print {
+    body { background:#fff !important; color:#000 !important; }
+    body::before { display:none; }
+    .btn, .table-controls, .tabs, .search-input, .filter-select { display:none !important; }
+    .wrap { padding:0 16px; }
+    .header { border-color:#ccc; }
+    .fund-name, .eyebrow, .kpi-value { color:#000 !important; }
+    .kpi, .stage-card, .breakdown-card, .table-wrap { border-color:#ddd !important; background:#f9f9f9 !important; }
+    th { color:#333 !important; background:#eee !important; }
+    td { border-color:#eee !important; color:#111 !important; }
+    .kpi-label, .stage-name, .slate, .report-label { color:#666 !important; }
+    .inv-name { color:#000 !important; }
+    .section-title { color:#333 !important; }
+    .section-line { background:#ddd !important; }
+    .badge { border:1px solid #ccc !important; color:#333 !important; background:#f0f0f0 !important; }
+    .live-badge, .progress-wrap { display:none; }
+  }
+
+  @media (max-width:900px) {
+    .kpis { grid-template-columns:repeat(3,1fr); }
+    .pipeline { grid-template-columns:repeat(2,1fr); }
+    .breakdown { grid-template-columns:1fr; }
+  }
+  @media (max-width:600px) {
+    .kpis { grid-template-columns:repeat(2,1fr); }
+    .fund-name { font-size:24px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <div class="eyebrow">Placement Pipeline · Confidential</div>
+      <h1 class="fund-name">XCap <em>Core Plus</em> Fund</h1>
+      <div class="progress-wrap" id="progress-wrap" style="display:none;min-width:340px;">
+        <div class="progress-label">
+          <span>Pipeline momentum</span>
+          <strong id="progress-pct">—</strong>
+        </div>
+        <div class="progress-track" id="progress-track"></div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="report-label">Bookbuild Report</div>
+      <div class="report-date" id="report-date">—</div>
+      <div class="header-actions">
+        <span class="live-badge"><span class="live-dot"></span>Live · HubSpot</span>
+        <button class="btn" onclick="loadData()">↻ Refresh</button>
+        <button class="btn btn-teams" id="btn-teams" onclick="postToTeams()">📣 Post to Teams</button>
+        <button class="btn btn-gold" onclick="window.print()">⬇ Print / PDF</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- KPIs -->
+  <div class="kpis">
+    <div class="kpi"><div class="kpi-label">Total investors</div><div class="kpi-value" id="kpi-total">—</div><div class="kpi-sub">in pipeline</div></div>
+    <div class="kpi"><div class="kpi-label">Contacted</div><div class="kpi-value" id="kpi-contacted">—</div><div class="kpi-sub">introduced or beyond</div></div>
+    <div class="kpi"><div class="kpi-label">Advancing</div><div class="kpi-value" id="kpi-advancing">—</div><div class="kpi-sub">meeting held or beyond</div></div>
+    <div class="kpi"><div class="kpi-label">Soft circled</div><div class="kpi-value" id="kpi-soft">—</div><div class="kpi-sub">indicative interest</div></div>
+    <div class="kpi"><div class="kpi-label">Committed</div><div class="kpi-value" id="kpi-committed">—</div><div class="kpi-sub">confirmed</div></div>
+  </div>
+
+  <!-- Pipeline stage cards -->
+  <div class="section-head"><span class="section-title">Pipeline stages</span><span class="section-line"></span><span style="font-size:11px;color:var(--slate);white-space:nowrap;">Click a stage to filter</span></div>
+  <div class="pipeline" id="pipeline-grid">
+    <div class="stage-card"><div class="stage-name">Loading…</div></div>
+  </div>
+
+  <!-- Funnel -->
+  <div class="section-head"><span class="section-title">Funnel view</span><span class="section-line"></span></div>
+  <div class="funnel-wrap" id="funnel-wrap">
+    <div class="state-msg"><div class="spinner"></div></div>
+  </div>
+
+  <!-- Breakdown -->
+  <div class="section-head"><span class="section-title">Breakdown</span><span class="section-line"></span></div>
+  <div class="breakdown" id="breakdown-grid">
+    <div class="breakdown-card"><div class="state-msg"><div class="spinner"></div></div></div>
+    <div class="breakdown-card"></div>
+  </div>
+
+  <!-- Investor table -->
+  <div class="section-head"><span class="section-title">Investors</span><span class="section-line"></span></div>
+  <div class="table-controls">
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab(&#39;all&#39;,this)">All</button>
+      <button class="tab" onclick="switchTab(&#39;pw&#39;,this)">Private Wealth</button>
+      <button class="tab" onclick="switchTab(&#39;insto&#39;,this)">Institutional</button>
+      <button class="tab" onclick="switchTab(&#39;active&#39;,this)">Advancing</button>
+      <button class="tab" onclick="switchTab(&#39;watch&#39;,this)">⚑ Watch list</button>
+    </div>
+    <input class="search-input" type="text" id="search" placeholder="Search investor…" oninput="renderTable()">
+    <select class="filter-select" id="filter-stage" onchange="renderTable()">
+      <option value="">All stages</option>
+      <option>Identified/Target</option><option>Introduced</option><option>Meeting held</option>
+      <option>Materials sent</option><option>Due diligence underway</option>
+      <option>Soft circle</option><option>Legal &amp; docs</option>
+      <option>Committed</option><option>Passed</option>
+    </select>
+    <select class="filter-select" id="filter-loc" onchange="renderTable()">
+      <option value="">All locations</option>
+    </select>
+    <select class="filter-select" id="filter-type" onchange="renderTable()">
+      <option value="">All types</option>
+    </select>
+    <span class="result-count" id="result-count"></span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:30%" onclick="sortBy(&#39;name&#39;)" id="th-name">Investor <span class="sort-icon" id="si-name">↕</span></th>
+          <th style="width:15%" onclick="sortBy(&#39;type&#39;)" id="th-type">Type <span class="sort-icon" id="si-type">↕</span></th>
+          <th style="width:10%" onclick="sortBy(&#39;location&#39;)" id="th-location">Location <span class="sort-icon" id="si-location">↕</span></th>
+          <th style="width:16%" onclick="sortBy(&#39;stage&#39;)" id="th-stage">Stage <span class="sort-icon" id="si-stage">↕</span></th>
+          <th style="width:14%" onclick="sortBy(&#39;updated&#39;)" id="th-updated">Last updated <span class="sort-icon" id="si-updated">↓</span></th>
+          <th style="width:15%">Note</th>
+        </tr>
+      </thead>
+      <tbody id="investor-tbody">
+        <tr><td colspan="6"><div class="state-msg"><div class="spinner"></div>Fetching live data from HubSpot…</div></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="margin-top:32px;text-align:center;">
+    <span style="font-family:&#39;DM Mono&#39;,monospace;font-size:10px;color:var(--slate);letter-spacing:.1em;">
+      XCAP CORE PLUS FUND — BOOKBUILD &nbsp;|&nbsp; CONFIDENTIAL — FOR INTERNAL USE ONLY &nbsp;|&nbsp; SOURCE: HUBSPOT CRM
+    </span>
+  </div>
+
+</div><!-- /wrap -->
+
+<!-- Toast notification -->
+<div class="toast" id="toast"></div>
+
+<!-- Token modal -->
+<div id="token-modal" style="display: flex; position: fixed; inset: 0px; z-index: 1000; background: rgba(7, 15, 30, 0.85); backdrop-filter: blur(4px); align-items: center; justify-content: center;">
+  <div style="
+    background:#132D52; border:1px solid rgba(201,168,76,0.3);
+    border-radius:14px; padding:36px 40px; max-width:460px; width:90%;
+    box-shadow:0 24px 80px rgba(0,0,0,0.5);
+  ">
+    <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;">Authentication Required</div>
+    <div style="font-family:&#39;DM Serif Display&#39;,serif;font-size:22px;color:#fff;margin-bottom:8px;">Enter HubSpot Token</div>
+    <div style="font-size:13px;color:#8A9BB5;margin-bottom:24px;line-height:1.6;">
+      Enter your HubSpot service key to load live pipeline data. Your token is held in memory for this session only and is never stored in any file.
+    </div>
+    <input id="token-input" type="password" placeholder="pat-ap1-..." onkeydown="if(event.key===&#39;Enter&#39;) submitToken()" style="
+        width:100%; background:rgba(255,255,255,0.05);
+        border:1px solid rgba(201,168,76,0.25); border-radius:8px;
+        padding:12px 14px; color:#fff; font-size:13px;
+        font-family:&#39;DM Mono&#39;,monospace; outline:none; margin-bottom:16px;
+        box-sizing:border-box;
+      ">
+    <div id="token-error" style="color:#FF8080;font-size:12px;margin-bottom:12px;display:none;">Could not connect — check your token and try again.</div>
+    <button onclick="submitToken()" style="
+      width:100%; background:rgba(201,168,76,0.15);
+      border:1px solid rgba(201,168,76,0.4); border-radius:8px;
+      padding:12px; color:#E8CC80; font-size:13px; font-weight:600;
+      font-family:&#39;DM Sans&#39;,sans-serif; cursor:pointer; transition:all .2s;
+    " onmouseover="this.style.background=&#39;rgba(201,168,76,0.25)&#39;" onmouseout="this.style.background=&#39;rgba(201,168,76,0.15)&#39;">
+      Load Dashboard →
+    </button>
+  </div>
+</div>
+
+<script>
+/* ── Config ──────────────────────────────────────────────────── */
+const TEAMS_WEBHOOK = 'https://trekcapital7.webhook.office.com/webhookb2/7775182f-9cc4-431a-806e-8b86c5a5e39b@618cd4c7-80cf-4e2f-a3a5-9e0a8f84f433/IncomingWebhook/c2934c15f9954c61b689b410d758c94e/59b97866-21de-4a9a-8368-c95bf7157276/V2JMh4gcYrrPYkje7UFhUel9cjc6gTYbuVFeCvxJ70F4Y1';
+let HUBSPOT_TOKEN = sessionStorage.getItem('xcap_hs_token') || '';
+
+/* ── Stage mappings ───────────────────────────────────────────── */
+const STAGE_MAP = {
+  'qualifiedtobuy':    'Identified/Target',
+  'presentationscheduled': 'Introduced',
+  'decisionmakerboughtin': 'Meeting held',
+  'contractsent':      'Materials sent',
+  'closedlost':        'Due diligence underway',
+  '963771196':         'Soft circle',
+  '963771197':         'Legal & docs',
+  '2947543502':        'Committed',
+  '2947543503':        'Passed',
+  '2554708410':        'Identified/Target',
+  '2554708411':        'Introduced',
+  '2554708412':        'Meeting held',
+  '2554708413':        'Materials sent',
+  '2554708414':        'Due diligence underway',
+  '2554708415':        'Soft circle',
+  '2554708416':        'Legal & docs',
+  '2554727888':        'Committed',
+  '2947203527':        'Passed',
+};
+
+const STAGE_ORDER = [
+  'Identified/Target','Introduced','Meeting held','Materials sent',
+  'Due diligence underway','Soft circle','Legal & docs','Committed','Passed'
+];
+
+const STAGE_COLORS = {
+  'Identified/Target':      '#3B82C4',
+  'Introduced':             '#6B5CB8',
+  'Meeting held':           '#2A7A5B',
+  'Materials sent':         '#B8862A',
+  'Due diligence underway': '#B84A2A',
+  'Soft circle':            '#3D7A2A',
+  'Legal & docs':           '#B8862A',
+  'Committed':              '#2A7A3D',
+  'Passed':                 '#8A2A2A',
+};
+
+const BADGE_STYLES = {
+  'Identified/Target':      'background:#1A3F7A;color:#9DC3F0;',
+  'Introduced':             'background:#3D2A6B;color:#C4B8F5;',
+  'Meeting held':           'background:#1A4F38;color:#7FCFAA;',
+  'Materials sent':         'background:#5A3A0A;color:#F5C878;',
+  'Due diligence underway': 'background:#5A2A1A;color:#F5A08A;',
+  'Soft circle':            'background:#2A5A1A;color:#A0E080;',
+  'Legal & docs':           'background:#5A3A0A;color:#F5C878;',
+  'Committed':              'background:#1A5A2A;color:#80E0A0;',
+  'Passed':                 'background:#5A1A1A;color:#F08080;',
+};
+
+const STAGE_WEIGHT = {
+  'Identified/Target':0,'Introduced':1,'Meeting held':2,'Materials sent':3,
+  'Due diligence underway':4,'Soft circle':5,'Legal & docs':6,'Committed':7,'Passed':0
+};
+
+/* ── State ───────────────────────────────────────────────────── */
+let allDeals = [];
+let currentTab = 'all';
+let watchList = new Set(JSON.parse(localStorage.getItem('xcap_watchlist')||'[]'));
+let sortKey = 'updated';
+let sortDir = -1;
+let stageFilter = '';
+
+/* ── Helpers ─────────────────────────────────────────────────── */
+function parseDesc(desc, key) {
+  if (!desc) return '';
+  const m = desc.match(new RegExp(key + ':\\s*([^|\\n]+)'));
+  return m ? m[1].trim() : '';
+}
+function fmtDate(iso) {
+  if (!iso) return '—';
+  return new Date(iso).toLocaleDateString('en-AU',{day:'2-digit',month:'short',year:'numeric'});
+}
+function escHtml(s) {
+  return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function saveWatchList() {
+  localStorage.setItem('xcap_watchlist', JSON.stringify([...watchList]));
+}
+function showToast(msg, type='success') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = `toast ${type} show`;
+  setTimeout(() => { t.className = 'toast'; }, 3500);
+}
+
+/* ── Load data from HubSpot directly ────────────────────────── */
+async function loadData() {
+  document.getElementById('investor-tbody').innerHTML =
+    '<tr><td colspan="6"><div class="state-msg"><div class="spinner"></div>Fetching live data from HubSpot…</div></td></tr>';
+
+  try {
+    // Use HubSpot Search API to find deals
+    // We search for all deals and filter by pipeline or name containing XCap
+    // Fetch all deals using pagination and filter client-side for XCap deals
+    // HubSpot CONTAINS_TOKEN does exact word matching so we fetch all and filter
+    let finalResults = [];
+    let after = undefined;
+    let keepFetching = true;
+
+    while (keepFetching) {
+      const url = new URL('https://api.hubapi.com/crm/v3/objects/deals');
+      url.searchParams.set('limit', '100');
+      url.searchParams.set('properties', 'dealname,dealstage,description,hs_lastmodifieddate,hs_next_step,pipeline');
+      if (after) url.searchParams.set('after', after);
+
+      const pageRes = await fetch(url.toString(), {
+        headers: { 'Authorization': `Bearer ${HUBSPOT_TOKEN}` }
+      });
+
+      if (!pageRes.ok) {
+        const errText = await pageRes.text();
+        throw new Error(`HubSpot API error ${pageRes.status}: ${errText}`);
+      }
+
+      const pageData = await pageRes.json();
+      const pageResults = pageData.results || [];
+
+      // Filter to only XCap deals
+      const xcapDeals = pageResults.filter(d => {
+        const name = (d.properties.dealname || '').toLowerCase();
+        return name.includes('xcap') || name.includes('xco');
+      });
+
+      finalResults = finalResults.concat(xcapDeals);
+
+      // Continue paginating if there are more results
+      if (pageData.paging && pageData.paging.next && pageData.paging.next.after) {
+        after = pageData.paging.next.after;
+      } else {
+        keepFetching = false;
+      }
+    }
+
+    allDeals = finalResults.map(d => {
+      const props = d.properties;
+      const rawName = props.dealname || '';
+      // Strip common prefixes to get clean investor name
+      const name = rawName
+        .replace(/XCap Core Plus Fund\s*[-–]\s*/i, '')
+        .replace(/XCOF\s*[-–]\s*/i, '')
+        .trim() || rawName;
+
+      return {
+        id: d.id,
+        name,
+        stage: STAGE_MAP[props.dealstage] || props.dealstage || 'Unknown',
+        type: parseDesc(props.description, 'Investor Type'),
+        location: parseDesc(props.description, 'Location'),
+        segment: parseDesc(props.description, 'Segment') || 'Private Wealth',
+        aum: parseDesc(props.description, 'AUM'),
+        updated: props.hs_lastmodifieddate,
+        nextStep: props.hs_next_step || '',
+        pipeline: props.pipeline || '',
+      };
+    });
+
+    const now = new Date();
+    document.getElementById('report-date').textContent =
+      now.toLocaleDateString('en-AU',{weekday:'long',day:'2-digit',month:'long',year:'numeric'}) +
+      ' · ' + now.toLocaleTimeString('en-AU',{hour:'2-digit',minute:'2-digit'});
+
+    updateKPIs();
+    updateProgress();
+    updatePipeline();
+    updateFunnel();
+    updateBreakdown();
+    populateFilters();
+    renderTable();
+
+  } catch(e) {
+    document.getElementById('investor-tbody').innerHTML =
+      `<tr><td colspan="6"><div class="state-msg error-text">
+        Could not load data — check connection and try refreshing.<br>
+        <small style="color:var(--slate);margin-top:6px;display:block">${escHtml(e.message)}</small>
+        <small style="color:var(--slate);margin-top:4px;display:block">Note: HubSpot API requires the page to be served over HTTPS. If testing locally, data may not load.</small>
+      </div></td></tr>`;
+    console.error(e);
+  }
+}
+
+/* ── KPIs ────────────────────────────────────────────────────── */
+function updateKPIs() {
+  const tot = allDeals.length;
+  const contacted = allDeals.filter(d => !['Identified/Target','Passed','Unknown'].includes(d.stage)).length;
+  const adv = allDeals.filter(d => ['Meeting held','Materials sent','Due diligence underway','Soft circle','Legal & docs','Committed'].includes(d.stage)).length;
+  const soft = allDeals.filter(d => d.stage === 'Soft circle').length;
+  const comm = allDeals.filter(d => d.stage === 'Committed').length;
+  document.getElementById('kpi-total').textContent = tot;
+  document.getElementById('kpi-contacted').textContent = contacted;
+  document.getElementById('kpi-advancing').textContent = adv;
+  document.getElementById('kpi-soft').textContent = soft;
+  document.getElementById('kpi-committed').textContent = comm;
+}
+
+/* ── Progress bar ────────────────────────────────────────────── */
+function updateProgress() {
+  const active = allDeals.filter(d => d.stage !== 'Passed');
+  if (!active.length) return;
+  const maxW = 7;
+  const totalScore = active.reduce((s,d) => s + (STAGE_WEIGHT[d.stage]||0), 0);
+  const pct = Math.round(totalScore / (active.length * maxW) * 100);
+
+  const counts = {};
+  STAGE_ORDER.forEach(s => counts[s] = 0);
+  active.forEach(d => { if (counts[d.stage]!==undefined) counts[d.stage]++; });
+  const total = active.length;
+
+  const track = document.getElementById('progress-track');
+  track.innerHTML = STAGE_ORDER.filter(s=>s!=='Passed').map(s => {
+    const w = Math.round(counts[s]/total*100);
+    return w ? `<div class="progress-seg" style="width:${w}%;background:${STAGE_COLORS[s]};opacity:0.75;" title="${s}: ${counts[s]}"></div>` : '';
+  }).join('');
+
+  document.getElementById('progress-pct').textContent = `${pct}% momentum`;
+  document.getElementById('progress-wrap').style.display = 'block';
+}
+
+/* ── Pipeline cards ──────────────────────────────────────────── */
+function updatePipeline() {
+  const counts = {};
+  STAGE_ORDER.forEach(s => counts[s] = 0);
+  allDeals.forEach(d => { if (counts[d.stage]!==undefined) counts[d.stage]++; });
+  const max = Math.max(...Object.values(counts),1);
+  const total = allDeals.length;
+
+  document.getElementById('pipeline-grid').innerHTML =
+    STAGE_ORDER.filter(s=>s!=='Passed').map(s => {
+      const pct = Math.round(counts[s]/max*100);
+      const ofTotal = total ? Math.round(counts[s]/total*100) : 0;
+      const isActive = stageFilter === s;
+      return `
+        <div class="stage-card${isActive?' active-filter':''}" onclick="toggleStageFilter('${s}')">
+          <div class="stage-name">${s}</div>
+          <div class="stage-count">${counts[s]}</div>
+          <div class="stage-bar-track">
+            <div class="stage-bar-fill" style="width:${pct}%;background:${STAGE_COLORS[s]};"></div>
+          </div>
+          <div class="stage-pct">${ofTotal}% of pipeline</div>
+        </div>`;
+    }).join('');
+}
+
+function toggleStageFilter(stage) {
+  stageFilter = stageFilter === stage ? '' : stage;
+  document.getElementById('filter-stage').value = stageFilter;
+  updatePipeline();
+  renderTable();
+}
+
+/* ── Funnel ──────────────────────────────────────────────────── */
+function updateFunnel() {
+  const counts = {};
+  STAGE_ORDER.forEach(s => counts[s] = 0);
+  allDeals.forEach(d => { if (counts[d.stage]!==undefined) counts[d.stage]++; });
+  const max = Math.max(...Object.values(counts), 1);
+
+  document.getElementById('funnel-wrap').innerHTML =
+    STAGE_ORDER.map(s => {
+      const w = Math.round(counts[s]/max*100);
+      return `
+        <div class="funnel-row">
+          <div class="funnel-label">${s}</div>
+          <div class="funnel-bar-track">
+            <div class="funnel-bar-fill" style="width:${w}%;background:${STAGE_COLORS[s]};">
+              ${counts[s] ? `<span class="funnel-bar-val">${counts[s]}</span>` : ''}
+            </div>
+          </div>
+        </div>`;
+    }).join('');
+}
+
+/* ── Breakdown ───────────────────────────────────────────────── */
+function updateBreakdown() {
+  const bySegment = {}, byLoc = {};
+  allDeals.forEach(d => {
+    const seg = d.segment || 'Private Wealth';
+    bySegment[seg] = (bySegment[seg]||0)+1;
+    if (d.location) byLoc[d.location] = (byLoc[d.location]||0)+1;
+  });
+
+  function rows(obj) {
+    if (!Object.keys(obj).length) return '<div style="color:var(--slate);font-size:12px;padding:8px 0;">No data</div>';
+    const maxV = Math.max(...Object.values(obj), 1);
+    return Object.entries(obj).sort((a,b)=>b[1]-a[1]).map(([k,v]) => `
+      <div class="breakdown-row">
+        <span>${escHtml(k)}</span>
+        <div class="breakdown-bar"><div class="breakdown-bar-fill" style="width:${Math.round(v/maxV*100)}%"></div></div>
+        <span class="breakdown-row-val">${v}</span>
+      </div>`).join('');
+  }
+
+  document.getElementById('breakdown-grid').innerHTML = `
+    <div class="breakdown-card">
+      <div class="breakdown-card-title">By segment</div>${rows(bySegment)}
+    </div>
+    <div class="breakdown-card">
+      <div class="breakdown-card-title">By location</div>${rows(byLoc)}
+    </div>`;
+}
+
+/* ── Filters ─────────────────────────────────────────────────── */
+function populateFilters() {
+  const locs = [...new Set(allDeals.map(d=>d.location).filter(Boolean))].sort();
+  document.getElementById('filter-loc').innerHTML =
+    '<option value="">All locations</option>' + locs.map(l=>`<option>${escHtml(l)}</option>`).join('');
+
+  const types = [...new Set(allDeals.map(d=>d.type).filter(Boolean))].sort();
+  document.getElementById('filter-type').innerHTML =
+    '<option value="">All types</option>' + types.map(t=>`<option>${escHtml(t)}</option>`).join('');
+}
+
+/* ── Sort ────────────────────────────────────────────────────── */
+function sortBy(key) {
+  if (sortKey === key) { sortDir *= -1; }
+  else { sortKey = key; sortDir = key === 'updated' ? -1 : 1; }
+  ['name','type','location','stage','updated'].forEach(k => {
+    const el = document.getElementById('si-'+k);
+    const th = document.getElementById('th-'+k);
+    if (el) {
+      el.textContent = sortKey===k ? (sortDir===1?'↑':'↓') : '↕';
+      th.classList.toggle('sorted', sortKey===k);
+    }
+  });
+  renderTable();
+}
+
+/* ── Table render ────────────────────────────────────────────── */
+function getFiltered() {
+  const q = (document.getElementById('search').value||'').toLowerCase();
+  const st = document.getElementById('filter-stage').value || stageFilter;
+  const loc = document.getElementById('filter-loc').value;
+  const typ = document.getElementById('filter-type').value;
+
+  return allDeals.filter(d => {
+    if (q && !d.name.toLowerCase().includes(q) && !(d.type||'').toLowerCase().includes(q) && !(d.location||'').toLowerCase().includes(q)) return false;
+    if (st && d.stage !== st) return false;
+    if (loc && d.location !== loc) return false;
+    if (typ && d.type !== typ) return false;
+    if (currentTab==='pw' && d.segment!=='Private Wealth') return false;
+    if (currentTab==='insto' && d.segment!=='Institutional') return false;
+    if (currentTab==='active' && !['Introduced','Meeting held','Materials sent','Due diligence underway','Soft circle','Legal & docs'].includes(d.stage)) return false;
+    if (currentTab==='watch' && !watchList.has(d.id)) return false;
+    return true;
+  });
+}
+
+function renderTable() {
+  const deals = getFiltered();
+  document.getElementById('result-count').textContent = `${deals.length} investor${deals.length!==1?'s':''}`;
+
+  if (!deals.length) {
+    document.getElementById('investor-tbody').innerHTML =
+      '<tr><td colspan="6"><div class="state-msg">No investors match this filter.</div></td></tr>';
+    return;
+  }
+
+  deals.sort((a,b) => {
+    let va = a[sortKey]||'', vb = b[sortKey]||'';
+    if (sortKey==='updated') { va = va||'0'; vb = vb||'0'; }
+    if (sortKey==='stage') { va = STAGE_ORDER.indexOf(va); vb = STAGE_ORDER.indexOf(vb); }
+    if (va < vb) return -sortDir;
+    if (va > vb) return sortDir;
+    return 0;
+  });
+
+  document.getElementById('investor-tbody').innerHTML = deals.map(d => {
+    const isWatched = watchList.has(d.id);
+    const noteText = d.nextStep ? escHtml(d.nextStep.substring(0,60)) + (d.nextStep.length>60?'…':'') : '—';
+    return `
+      <tr>
+        <td>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <button onclick="toggleWatch('${d.id}')" style="background:none;border:none;cursor:pointer;color:${isWatched?'#F5C84C':'rgba(255,255,255,0.2)'};font-size:13px;padding:0;line-height:1;" title="${isWatched?'Remove from watch list':'Add to watch list'}">⚑</button>
+            <div>
+              <div class="inv-name">${escHtml(d.name)}</div>
+              ${d.aum ? `<div class="inv-type">AUM: ${escHtml(d.aum)}</div>` : ''}
+            </div>
+          </div>
+        </td>
+        <td><span class="inv-type">${escHtml(d.type)||'—'}</span></td>
+        <td><span class="loc-text">${escHtml(d.location)||'—'}</span></td>
+        <td><span class="badge" style="${BADGE_STYLES[d.stage]||''}">${escHtml(d.stage)}</span></td>
+        <td><span class="date-text">${fmtDate(d.updated)}</span></td>
+        <td><span class="note-text" title="${escHtml(d.nextStep)}">${noteText}</span></td>
+      </tr>`;
+  }).join('');
+}
+
+function toggleWatch(id) {
+  if (watchList.has(id)) watchList.delete(id);
+  else watchList.add(id);
+  saveWatchList();
+  renderTable();
+}
+
+function switchTab(tab, el) {
+  currentTab = tab;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  renderTable();
+}
+
+document.getElementById('filter-stage').addEventListener('change', function() {
+  stageFilter = this.value;
+  updatePipeline();
+});
+
+/* ── Post to Teams ───────────────────────────────────────────── */
+async function postToTeams() {
+  if (!allDeals.length) { showToast('No data loaded yet — refresh first.', 'error'); return; }
+
+  const btn = document.getElementById('btn-teams');
+  btn.disabled = true;
+  btn.textContent = '⏳ Posting…';
+
+  const now = new Date().toLocaleDateString('en-AU',{weekday:'long',day:'2-digit',month:'long',year:'numeric'});
+
+  // Build stage summary
+  const counts = {};
+  STAGE_ORDER.forEach(s => counts[s] = 0);
+  allDeals.forEach(d => { if (counts[d.stage]!==undefined) counts[d.stage]++; });
+
+  const committed = counts['Committed'] || 0;
+  const softCircle = counts['Soft circle'] || 0;
+  const advancing = allDeals.filter(d => ['Meeting held','Materials sent','Due diligence underway','Soft circle','Legal & docs','Committed'].includes(d.stage)).length;
+  const total = allDeals.length;
+
+  const stageSummary = STAGE_ORDER
+    .filter(s => counts[s] > 0)
+    .map(s => `• **${s}**: ${counts[s]}`)
+    .join('\n');
+
+  // Recent activity (last 7 days)
+  const sevenDaysAgo = new Date(Date.now() - 7*24*60*60*1000);
+  const recentlyUpdated = allDeals
+    .filter(d => d.updated && new Date(d.updated) > sevenDaysAgo)
+    .sort((a,b) => new Date(b.updated) - new Date(a.updated))
+    .slice(0, 5);
+
+  const recentText = recentlyUpdated.length
+    ? recentlyUpdated.map(d => `• ${d.name} → **${d.stage}**`).join('\n')
+    : '• No recent updates in the last 7 days';
+
+  const payload = {
+    type: 'message',
+    attachments: [
+      {
+        contentType: 'application/vnd.microsoft.card.adaptive',
+        content: {
+          '$schema': 'http://adaptivecards.io/schemas/adaptive-card.json',
+          type: 'AdaptiveCard',
+          version: '1.4',
+          body: [
+            {
+              type: 'TextBlock',
+              text: '📊 XCap Core Plus Fund — Bookbuild Update',
+              weight: 'Bolder',
+              size: 'Large',
+              color: 'Accent'
+            },
+            {
+              type: 'TextBlock',
+              text: now,
+              size: 'Small',
+              isSubtle: true,
+              spacing: 'None'
+            },
+            {
+              type: 'ColumnSet',
+              spacing: 'Medium',
+              columns: [
+                {
+                  type: 'Column',
+                  width: 'stretch',
+                  items: [{
+                    type: 'TextBlock',
+                    text: `**${total}**\nTotal investors`,
+                    wrap: true,
+                    size: 'Medium'
+                  }]
+                },
+                {
+                  type: 'Column',
+                  width: 'stretch',
+                  items: [{
+                    type: 'TextBlock',
+                    text: `**${advancing}**\nAdvancing`,
+                    wrap: true,
+                    size: 'Medium'
+                  }]
+                },
+                {
+                  type: 'Column',
+                  width: 'stretch',
+                  items: [{
+                    type: 'TextBlock',
+                    text: `**${softCircle}**\nSoft circled`,
+                    wrap: true,
+                    size: 'Medium'
+                  }]
+                },
+                {
+                  type: 'Column',
+                  width: 'stretch',
+                  items: [{
+                    type: 'TextBlock',
+                    text: `**${committed}**\nCommitted`,
+                    wrap: true,
+                    size: 'Medium',
+                    color: 'Good'
+                  }]
+                }
+              ]
+            },
+            {
+              type: 'TextBlock',
+              text: '**Pipeline by stage**',
+              weight: 'Bolder',
+              spacing: 'Medium'
+            },
+            {
+              type: 'TextBlock',
+              text: stageSummary,
+              wrap: true,
+              spacing: 'None'
+            },
+            {
+              type: 'TextBlock',
+              text: '**Recently updated (last 7 days)**',
+              weight: 'Bolder',
+              spacing: 'Medium'
+            },
+            {
+              type: 'TextBlock',
+              text: recentText,
+              wrap: true,
+              spacing: 'None'
+            },
+            {
+              type: 'TextBlock',
+              text: 'Source: HubSpot CRM · Confidential — Internal use only',
+              size: 'Small',
+              isSubtle: true,
+              spacing: 'Medium'
+            }
+          ],
+          actions: [
+            {
+              type: 'Action.OpenUrl',
+              title: '📋 Open Bookbuild Dashboard',
+              url: 'https://trekcapital7.sharepoint.com/sites/XCOFCapRaise/Shared%20Documents/XCap_Bookbuild_Report.html'
+            }
+          ]
+        }
+      }
+    ]
+  };
+
+  try {
+    await fetch(TEAMS_WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    showToast('✓ Posted to Investor Pipeline channel', 'success');
+  } catch(e) {
+    showToast('Could not post to Teams — check webhook URL', 'error');
+    console.error(e);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '📣 Post to Teams';
+  }
+}
+
+/* ── Token prompt ────────────────────────────────────────────── */
+function showTokenModal() {
+  const modal = document.getElementById('token-modal');
+  modal.style.display = 'flex';
+  setTimeout(() => document.getElementById('token-input').focus(), 100);
+}
+
+async function submitToken() {
+  const input = document.getElementById('token-input').value.trim();
+  if (!input) return;
+  document.getElementById('token-error').style.display = 'none';
+  if (!input.startsWith('pat-')) {
+    document.getElementById('token-error').style.display = 'block';
+    document.getElementById('token-error').textContent = 'Token should start with pat- — please check and try again.';
+    return;
+  }
+  HUBSPOT_TOKEN = input;
+  sessionStorage.setItem('xcap_hs_token', input);
+  document.getElementById('token-modal').style.display = 'none';
+  loadData();
+}
+
+/* ── Init ────────────────────────────────────────────────────── */
+if (HUBSPOT_TOKEN) {
+  loadData();
+} else {
+  showTokenModal();
+}
+</script>
+
+
+</body></html>
