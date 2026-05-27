@@ -379,7 +379,7 @@
 <script>
 /* ── Config ──────────────────────────────────────────────────── */
 const TEAMS_WEBHOOK = 'https://trekcapital7.webhook.office.com/webhookb2/7775182f-9cc4-431a-806e-8b86c5a5e39b@618cd4c7-80cf-4e2f-a3a5-9e0a8f84f433/IncomingWebhook/c2934c15f9954c61b689b410d758c94e/59b97866-21de-4a9a-8368-c95bf7157276/V2JMh4gcYrrPYkje7UFhUel9cjc6gTYbuVFeCvxJ70F4Y1';
-let HUBSPOT_TOKEN = sessionStorage.getItem('xcap_hs_token') || '';
+let HUBSPOT_TOKEN = localStorage.getItem('xcap_hs_token') || '';
 
 /* ── Stage mappings ───────────────────────────────────────────── */
 const STAGE_MAP = {
@@ -975,7 +975,7 @@ async function submitToken() {
     return;
   }
   HUBSPOT_TOKEN = input;
-  sessionStorage.setItem('xcap_hs_token', input);
+  localStorage.setItem('xcap_hs_token', input);
   document.getElementById('token-modal').style.display = 'none';
   loadData();
 }
