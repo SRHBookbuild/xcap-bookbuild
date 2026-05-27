@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<!-- saved from url=(0069)file:///C:/Users/SRH%20Surface/Downloads/XCap_Bookbuild_Report_2.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>XCap Core Plus Fund — Bookbuild</title>
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link href="./XCap_Bookbuild_Report_files/css2" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy:     #0B1F3A;
@@ -282,11 +283,11 @@
   <div class="section-head"><span class="section-title">Investors</span><span class="section-line"></span></div>
   <div class="table-controls">
     <div class="tabs">
-      <button class="tab active" onclick="switchTab(&#39;all&#39;,this)">All</button>
-      <button class="tab" onclick="switchTab(&#39;pw&#39;,this)">Private Wealth</button>
-      <button class="tab" onclick="switchTab(&#39;insto&#39;,this)">Institutional</button>
-      <button class="tab" onclick="switchTab(&#39;active&#39;,this)">Advancing</button>
-      <button class="tab" onclick="switchTab(&#39;watch&#39;,this)">⚑ Watch list</button>
+      <button class="tab active" onclick="switchTab('all',this)">All</button>
+      <button class="tab" onclick="switchTab('pw',this)">Private Wealth</button>
+      <button class="tab" onclick="switchTab('insto',this)">Institutional</button>
+      <button class="tab" onclick="switchTab('active',this)">Advancing</button>
+      <button class="tab" onclick="switchTab('watch',this)">⚑ Watch list</button>
     </div>
     <input class="search-input" type="text" id="search" placeholder="Search investor…" oninput="renderTable()">
     <select class="filter-select" id="filter-stage" onchange="renderTable()">
@@ -309,11 +310,11 @@
     <table>
       <thead>
         <tr>
-          <th style="width:30%" onclick="sortBy(&#39;name&#39;)" id="th-name">Investor <span class="sort-icon" id="si-name">↕</span></th>
-          <th style="width:15%" onclick="sortBy(&#39;type&#39;)" id="th-type">Type <span class="sort-icon" id="si-type">↕</span></th>
-          <th style="width:10%" onclick="sortBy(&#39;location&#39;)" id="th-location">Location <span class="sort-icon" id="si-location">↕</span></th>
-          <th style="width:16%" onclick="sortBy(&#39;stage&#39;)" id="th-stage">Stage <span class="sort-icon" id="si-stage">↕</span></th>
-          <th style="width:14%" onclick="sortBy(&#39;updated&#39;)" id="th-updated">Last updated <span class="sort-icon" id="si-updated">↓</span></th>
+          <th style="width:30%" onclick="sortBy('name')" id="th-name">Investor <span class="sort-icon" id="si-name">↕</span></th>
+          <th style="width:15%" onclick="sortBy('type')" id="th-type">Type <span class="sort-icon" id="si-type">↕</span></th>
+          <th style="width:10%" onclick="sortBy('location')" id="th-location">Location <span class="sort-icon" id="si-location">↕</span></th>
+          <th style="width:16%" onclick="sortBy('stage')" id="th-stage">Stage <span class="sort-icon" id="si-stage">↕</span></th>
+          <th style="width:14%" onclick="sortBy('updated')" id="th-updated">Last updated <span class="sort-icon" id="si-updated">↓</span></th>
           <th style="width:15%">Note</th>
         </tr>
       </thead>
@@ -324,7 +325,7 @@
   </div>
 
   <div style="margin-top:32px;text-align:center;">
-    <span style="font-family:&#39;DM Mono&#39;,monospace;font-size:10px;color:var(--slate);letter-spacing:.1em;">
+    <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--slate);letter-spacing:.1em;">
       XCAP CORE PLUS FUND — BOOKBUILD &nbsp;|&nbsp; CONFIDENTIAL — FOR INTERNAL USE ONLY &nbsp;|&nbsp; SOURCE: HUBSPOT CRM
     </span>
   </div>
@@ -335,31 +336,41 @@
 <div class="toast" id="toast"></div>
 
 <!-- Token modal -->
-<div id="token-modal" style="display: flex; position: fixed; inset: 0px; z-index: 1000; background: rgba(7, 15, 30, 0.85); backdrop-filter: blur(4px); align-items: center; justify-content: center;">
+<div id="token-modal" style="
+  display:none; position:fixed; inset:0; z-index:1000;
+  background:rgba(7,15,30,0.85); backdrop-filter:blur(4px);
+  align-items:center; justify-content:center;
+">
   <div style="
     background:#132D52; border:1px solid rgba(201,168,76,0.3);
     border-radius:14px; padding:36px 40px; max-width:460px; width:90%;
     box-shadow:0 24px 80px rgba(0,0,0,0.5);
   ">
-    <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;">Authentication Required</div>
-    <div style="font-family:&#39;DM Serif Display&#39;,serif;font-size:22px;color:#fff;margin-bottom:8px;">Enter HubSpot Token</div>
+    <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;">Authentication Required</div>
+    <div style="font-family:'DM Serif Display',serif;font-size:22px;color:#fff;margin-bottom:8px;">Enter HubSpot Token</div>
     <div style="font-size:13px;color:#8A9BB5;margin-bottom:24px;line-height:1.6;">
       Enter your HubSpot service key to load live pipeline data. Your token is held in memory for this session only and is never stored in any file.
     </div>
-    <input id="token-input" type="password" placeholder="pat-ap1-..." onkeydown="if(event.key===&#39;Enter&#39;) submitToken()" style="
+    <input
+      id="token-input"
+      type="password"
+      placeholder="pat-ap1-..."
+      onkeydown="if(event.key==='Enter') submitToken()"
+      style="
         width:100%; background:rgba(255,255,255,0.05);
         border:1px solid rgba(201,168,76,0.25); border-radius:8px;
         padding:12px 14px; color:#fff; font-size:13px;
-        font-family:&#39;DM Mono&#39;,monospace; outline:none; margin-bottom:16px;
+        font-family:'DM Mono',monospace; outline:none; margin-bottom:16px;
         box-sizing:border-box;
-      ">
+      "
+    >
     <div id="token-error" style="color:#FF8080;font-size:12px;margin-bottom:12px;display:none;">Could not connect — check your token and try again.</div>
     <button onclick="submitToken()" style="
       width:100%; background:rgba(201,168,76,0.15);
       border:1px solid rgba(201,168,76,0.4); border-radius:8px;
       padding:12px; color:#E8CC80; font-size:13px; font-weight:600;
-      font-family:&#39;DM Sans&#39;,sans-serif; cursor:pointer; transition:all .2s;
-    " onmouseover="this.style.background=&#39;rgba(201,168,76,0.25)&#39;" onmouseout="this.style.background=&#39;rgba(201,168,76,0.15)&#39;">
+      font-family:'DM Sans',sans-serif; cursor:pointer; transition:all .2s;
+    " onmouseover="this.style.background='rgba(201,168,76,0.25)'" onmouseout="this.style.background='rgba(201,168,76,0.15)'">
       Load Dashboard →
     </button>
   </div>
@@ -472,13 +483,14 @@ async function loadData() {
     let keepFetching = true;
 
     while (keepFetching) {
-      const url = new URL('https://api.hubapi.com/crm/v3/objects/deals');
+      const PROXY = 'https://srhbookbuild--6006f776596b11f1b840ee650bb23af1.web.val.run';
+      const url = new URL(PROXY + '/crm/v3/objects/deals');
       url.searchParams.set('limit', '100');
       url.searchParams.set('properties', 'dealname,dealstage,description,hs_lastmodifieddate,hs_next_step,pipeline');
       if (after) url.searchParams.set('after', after);
 
       const pageRes = await fetch(url.toString(), {
-        headers: { 'Authorization': `Bearer ${HUBSPOT_TOKEN}` }
+        headers: { 'Authorization': `Bearer ${HUBSPOT_TOKEN}`, 'X-Hubspot-Token': HUBSPOT_TOKEN }
       });
 
       if (!pageRes.ok) {
@@ -975,6 +987,5 @@ if (HUBSPOT_TOKEN) {
   showTokenModal();
 }
 </script>
-
-
-</body></html>
+</body>
+</html>
