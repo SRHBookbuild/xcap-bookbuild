@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<!-- saved from url=(0067)file:///C:/Users/SRH%20Surface/Downloads/XLHF_Bookbuild_Report.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>XCap LFR Heatherbrae Fund — Bookbuild</title>
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link href="./XCap LFR Heatherbrae Fund — Bookbuild_files/css2" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy:     #0B1F3A;
@@ -230,17 +231,17 @@
     <div class="header-left">
       <div class="eyebrow">Placement Pipeline · Confidential</div>
       <h1 class="fund-name">XCap <em>LFR Heatherbrae</em> Fund</h1>
-      <div class="progress-wrap" id="progress-wrap" style="display: block; min-width: 340px;">
+      <div class="progress-wrap" id="progress-wrap" style="display:none;min-width:340px;">
         <div class="progress-label">
           <span>Pipeline momentum</span>
-          <strong id="progress-pct">13% momentum</strong>
+          <strong id="progress-pct">—</strong>
         </div>
-        <div class="progress-track" id="progress-track"><div class="progress-seg" style="width:6%;background:#3B82C4;opacity:0.75;" title="Identified/Target: 2"></div><div class="progress-seg" style="width:94%;background:#6B5CB8;opacity:0.75;" title="Introduced: 30"></div></div>
+        <div class="progress-track" id="progress-track"></div>
       </div>
     </div>
     <div class="header-right">
       <div class="report-label">Bookbuild Report</div>
-      <div class="report-date" id="report-date">Wednesday 27 May 2026 · 02:46 pm</div>
+      <div class="report-date" id="report-date">—</div>
       <div class="header-actions">
         <span class="live-badge"><span class="live-dot"></span>Live · HubSpot</span>
         <button class="btn" onclick="loadData()">↻ Refresh</button>
@@ -252,181 +253,41 @@
 
   <!-- KPIs -->
   <div class="kpis">
-    <div class="kpi"><div class="kpi-label">Total investors</div><div class="kpi-value" id="kpi-total">32</div><div class="kpi-sub">in pipeline</div></div>
-    <div class="kpi"><div class="kpi-label">Contacted</div><div class="kpi-value" id="kpi-contacted">30</div><div class="kpi-sub">introduced or beyond</div></div>
-    <div class="kpi"><div class="kpi-label">Advancing</div><div class="kpi-value" id="kpi-advancing">0</div><div class="kpi-sub">meeting held or beyond</div></div>
-    <div class="kpi"><div class="kpi-label">Soft circled</div><div class="kpi-value" id="kpi-soft">0</div><div class="kpi-sub">indicative interest</div></div>
-    <div class="kpi"><div class="kpi-label">Committed</div><div class="kpi-value" id="kpi-committed">0</div><div class="kpi-sub">confirmed</div></div>
+    <div class="kpi"><div class="kpi-label">Total investors</div><div class="kpi-value" id="kpi-total">—</div><div class="kpi-sub">in pipeline</div></div>
+    <div class="kpi"><div class="kpi-label">Contacted</div><div class="kpi-value" id="kpi-contacted">—</div><div class="kpi-sub">introduced or beyond</div></div>
+    <div class="kpi"><div class="kpi-label">Advancing</div><div class="kpi-value" id="kpi-advancing">—</div><div class="kpi-sub">meeting held or beyond</div></div>
+    <div class="kpi"><div class="kpi-label">Soft circled</div><div class="kpi-value" id="kpi-soft">—</div><div class="kpi-sub">indicative interest</div></div>
+    <div class="kpi"><div class="kpi-label">Committed</div><div class="kpi-value" id="kpi-committed">—</div><div class="kpi-sub">confirmed</div></div>
   </div>
 
   <!-- Pipeline stage cards -->
   <div class="section-head"><span class="section-title">Pipeline stages</span><span class="section-line"></span><span style="font-size:11px;color:var(--slate);white-space:nowrap;">Click a stage to filter</span></div>
   <div class="pipeline" id="pipeline-grid">
-        <div class="stage-card" onclick="toggleStageFilter(&#39;Identified/Target&#39;)">
-          <div class="stage-name">Identified/Target</div>
-          <div class="stage-count">2</div>
-          <div class="stage-bar-track">
-            <div class="stage-bar-fill" style="width:7%;background:#3B82C4;"></div>
-          </div>
-          <div class="stage-pct">6% of pipeline</div>
-        </div>
-        <div class="stage-card" onclick="toggleStageFilter(&#39;Introduced&#39;)">
-          <div class="stage-name">Introduced</div>
-          <div class="stage-count">30</div>
-          <div class="stage-bar-track">
-            <div class="stage-bar-fill" style="width:100%;background:#6B5CB8;"></div>
-          </div>
-          <div class="stage-pct">94% of pipeline</div>
-        </div>
-        <div class="stage-card" onclick="toggleStageFilter(&#39;Meeting held&#39;)">
-          <div class="stage-name">Meeting held</div>
-          <div class="stage-count">0</div>
-          <div class="stage-bar-track">
-            <div class="stage-bar-fill" style="width:0%;background:#2A7A5B;"></div>
-          </div>
-          <div class="stage-pct">0% of pipeline</div>
-        </div>
-        <div class="stage-card" onclick="toggleStageFilter(&#39;Materials sent&#39;)">
-          <div class="stage-name">Materials sent</div>
-          <div class="stage-count">0</div>
-          <div class="stage-bar-track">
-            <div class="stage-bar-fill" style="width:0%;background:#B8862A;"></div>
-          </div>
-          <div class="stage-pct">0% of pipeline</div>
-        </div>
-        <div class="stage-card" onclick="toggleStageFilter(&#39;Due diligence underway&#39;)">
-          <div class="stage-name">Due diligence underway</div>
-          <div class="stage-count">0</div>
-          <div class="stage-bar-track">
-            <div class="stage-bar-fill" style="width:0%;background:#B84A2A;"></div>
-          </div>
-          <div class="stage-pct">0% of pipeline</div>
-        </div>
-        <div class="stage-card" onclick="toggleStageFilter(&#39;Soft circle&#39;)">
-          <div class="stage-name">Soft circle</div>
-          <div class="stage-count">0</div>
-          <div class="stage-bar-track">
-            <div class="stage-bar-fill" style="width:0%;background:#3D7A2A;"></div>
-          </div>
-          <div class="stage-pct">0% of pipeline</div>
-        </div>
-        <div class="stage-card" onclick="toggleStageFilter(&#39;Legal &amp; docs&#39;)">
-          <div class="stage-name">Legal &amp; docs</div>
-          <div class="stage-count">0</div>
-          <div class="stage-bar-track">
-            <div class="stage-bar-fill" style="width:0%;background:#B8862A;"></div>
-          </div>
-          <div class="stage-pct">0% of pipeline</div>
-        </div>
-        <div class="stage-card" onclick="toggleStageFilter(&#39;Committed&#39;)">
-          <div class="stage-name">Committed</div>
-          <div class="stage-count">0</div>
-          <div class="stage-bar-track">
-            <div class="stage-bar-fill" style="width:0%;background:#2A7A3D;"></div>
-          </div>
-          <div class="stage-pct">0% of pipeline</div>
-        </div></div>
+    <div class="stage-card"><div class="stage-name">Loading…</div></div>
+  </div>
 
   <!-- Funnel -->
   <div class="section-head"><span class="section-title">Funnel view</span><span class="section-line"></span></div>
   <div class="funnel-wrap" id="funnel-wrap">
-        <div class="funnel-row">
-          <div class="funnel-label">Identified/Target</div>
-          <div class="funnel-bar-track">
-            <div class="funnel-bar-fill" style="width:7%;background:#3B82C4;">
-              <span class="funnel-bar-val">2</span>
-            </div>
-          </div>
-        </div>
-        <div class="funnel-row">
-          <div class="funnel-label">Introduced</div>
-          <div class="funnel-bar-track">
-            <div class="funnel-bar-fill" style="width:100%;background:#6B5CB8;">
-              <span class="funnel-bar-val">30</span>
-            </div>
-          </div>
-        </div>
-        <div class="funnel-row">
-          <div class="funnel-label">Meeting held</div>
-          <div class="funnel-bar-track">
-            <div class="funnel-bar-fill" style="width:0%;background:#2A7A5B;">
-              
-            </div>
-          </div>
-        </div>
-        <div class="funnel-row">
-          <div class="funnel-label">Materials sent</div>
-          <div class="funnel-bar-track">
-            <div class="funnel-bar-fill" style="width:0%;background:#B8862A;">
-              
-            </div>
-          </div>
-        </div>
-        <div class="funnel-row">
-          <div class="funnel-label">Due diligence underway</div>
-          <div class="funnel-bar-track">
-            <div class="funnel-bar-fill" style="width:0%;background:#B84A2A;">
-              
-            </div>
-          </div>
-        </div>
-        <div class="funnel-row">
-          <div class="funnel-label">Soft circle</div>
-          <div class="funnel-bar-track">
-            <div class="funnel-bar-fill" style="width:0%;background:#3D7A2A;">
-              
-            </div>
-          </div>
-        </div>
-        <div class="funnel-row">
-          <div class="funnel-label">Legal &amp; docs</div>
-          <div class="funnel-bar-track">
-            <div class="funnel-bar-fill" style="width:0%;background:#B8862A;">
-              
-            </div>
-          </div>
-        </div>
-        <div class="funnel-row">
-          <div class="funnel-label">Committed</div>
-          <div class="funnel-bar-track">
-            <div class="funnel-bar-fill" style="width:0%;background:#2A7A3D;">
-              
-            </div>
-          </div>
-        </div>
-        <div class="funnel-row">
-          <div class="funnel-label">Passed</div>
-          <div class="funnel-bar-track">
-            <div class="funnel-bar-fill" style="width:0%;background:#8A2A2A;">
-              
-            </div>
-          </div>
-        </div></div>
+    <div class="state-msg"><div class="spinner"></div></div>
+  </div>
 
   <!-- Breakdown -->
   <div class="section-head"><span class="section-title">Breakdown</span><span class="section-line"></span></div>
   <div class="breakdown" id="breakdown-grid">
-    <div class="breakdown-card">
-      <div class="breakdown-card-title">By segment</div>
-      <div class="breakdown-row">
-        <span>Private Wealth</span>
-        <div class="breakdown-bar"><div class="breakdown-bar-fill" style="width:100%"></div></div>
-        <span class="breakdown-row-val">32</span>
-      </div>
-    </div>
-    <div class="breakdown-card">
-      <div class="breakdown-card-title">By location</div><div style="color:var(--slate);font-size:12px;padding:8px 0;">No data</div>
-    </div></div>
+    <div class="breakdown-card"><div class="state-msg"><div class="spinner"></div></div></div>
+    <div class="breakdown-card"></div>
+  </div>
 
   <!-- Investor table -->
   <div class="section-head"><span class="section-title">Investors</span><span class="section-line"></span></div>
   <div class="table-controls">
     <div class="tabs">
-      <button class="tab active" onclick="switchTab(&#39;all&#39;,this)">All</button>
-      <button class="tab" onclick="switchTab(&#39;pw&#39;,this)">Private Wealth</button>
-      <button class="tab" onclick="switchTab(&#39;insto&#39;,this)">Institutional</button>
-      <button class="tab" onclick="switchTab(&#39;active&#39;,this)">Advancing</button>
-      <button class="tab" onclick="switchTab(&#39;watch&#39;,this)">⚑ Watch list</button>
+      <button class="tab active" onclick="switchTab('all',this)">All</button>
+      <button class="tab" onclick="switchTab('pw',this)">Private Wealth</button>
+      <button class="tab" onclick="switchTab('insto',this)">Institutional</button>
+      <button class="tab" onclick="switchTab('active',this)">Advancing</button>
+      <button class="tab" onclick="switchTab('watch',this)">⚑ Watch list</button>
     </div>
     <input class="search-input" type="text" id="search" placeholder="Search investor…" oninput="renderTable()">
     <select class="filter-select" id="filter-stage" onchange="renderTable()">
@@ -436,541 +297,35 @@
       <option>Soft circle</option><option>Legal &amp; docs</option>
       <option>Committed</option><option>Passed</option>
     </select>
-    <select class="filter-select" id="filter-loc" onchange="renderTable()"><option value="">All locations</option></select>
-    <select class="filter-select" id="filter-type" onchange="renderTable()"><option value="">All types</option></select>
-    <span class="result-count" id="result-count">32 investors</span>
+    <select class="filter-select" id="filter-loc" onchange="renderTable()">
+      <option value="">All locations</option>
+    </select>
+    <select class="filter-select" id="filter-type" onchange="renderTable()">
+      <option value="">All types</option>
+    </select>
+    <span class="result-count" id="result-count"></span>
   </div>
 
   <div class="table-wrap">
     <table>
       <thead>
         <tr>
-          <th style="width:30%" onclick="sortBy(&#39;name&#39;)" id="th-name">Investor <span class="sort-icon" id="si-name">↕</span></th>
-          <th style="width:15%" onclick="sortBy(&#39;type&#39;)" id="th-type">Type <span class="sort-icon" id="si-type">↕</span></th>
-          <th style="width:10%" onclick="sortBy(&#39;location&#39;)" id="th-location">Location <span class="sort-icon" id="si-location">↕</span></th>
-          <th style="width:16%" onclick="sortBy(&#39;stage&#39;)" id="th-stage">Stage <span class="sort-icon" id="si-stage">↕</span></th>
-          <th style="width:14%" onclick="sortBy(&#39;updated&#39;)" id="th-updated">Last updated <span class="sort-icon" id="si-updated">↓</span></th>
+          <th style="width:30%" onclick="sortBy('name')" id="th-name">Investor <span class="sort-icon" id="si-name">↕</span></th>
+          <th style="width:15%" onclick="sortBy('type')" id="th-type">Type <span class="sort-icon" id="si-type">↕</span></th>
+          <th style="width:10%" onclick="sortBy('location')" id="th-location">Location <span class="sort-icon" id="si-location">↕</span></th>
+          <th style="width:16%" onclick="sortBy('stage')" id="th-stage">Stage <span class="sort-icon" id="si-stage">↕</span></th>
+          <th style="width:14%" onclick="sortBy('updated')" id="th-updated">Last updated <span class="sort-icon" id="si-updated">↓</span></th>
           <th style="width:15%">Note</th>
         </tr>
       </thead>
       <tbody id="investor-tbody">
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270399005171&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Rees Pritchard</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">26 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270985292268&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Argent Wealth</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">26 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270983159281&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">GEM Capital Financial Advice</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">26 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;271178185184&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">William Buck</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">26 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270983866818&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Fitzpatricks Private Wealth</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">26 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270985292233&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Olbia</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">26 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;271178175963&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Palmer Family Office</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">26 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;271178175981&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Phillips Family Office</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">26 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;271178174937&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Ivany Investment Group</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">26 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270984582617&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Cambooya</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">26 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;271270932951&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Empire Financial Group</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">26 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270983142905&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Dorado Group</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">26 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270983850458&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Candor</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">26 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270926779847&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Mutual Trust/MFO (Bailieu)</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">26 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270595416538&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">XCap LFR Heatherbrae Fund</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">26 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270985212390&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Morrows Pty Ltd</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">25 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270983067075&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Stellan Capital</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">25 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270985209325&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Ascot Wealth Management</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">25 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;271130691044&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Belay Advisory</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">25 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270984511967&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Arrow Private Wealth</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">25 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270985210318&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">First Samuel Ltd</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">25 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;271130691020&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Morgans Noosa</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">25 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;271178103271&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">1010 Capital</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">25 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;271130690035&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">MGD Wealth Ltd</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">25 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;271130685925&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Shaw and Partners - Adelaide</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">25 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270983777757&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">XCap LFR Heatherbrae - Minerds Bell</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#1A3F7A;color:#9DC3F0;">Identified/Target</span></td>
-        <td><span class="date-text">25 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270985200059&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Brentnalls SA</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">25 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270983775693&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Business Initiatives</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">25 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270983776723&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Calder Wealth Management</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#1A3F7A;color:#9DC3F0;">Identified/Target</span></td>
-        <td><span class="date-text">25 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270458985919&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">XCap LFR Heatherbrae Fund</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">25 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270399005129&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">XCap LFR Heatherbrae Fund</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">25 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr>
-      <tr>
-        <td>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button onclick="toggleWatch(&#39;270596131268&#39;)" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.2);font-size:13px;padding:0;line-height:1;" title="Add to watch list">⚑</button>
-            <div>
-              <div class="inv-name">Ottomin Group</div>
-              
-            </div>
-          </div>
-        </td>
-        <td><span class="inv-type">—</span></td>
-        <td><span class="loc-text">—</span></td>
-        <td><span class="badge" style="background:#3D2A6B;color:#C4B8F5;">Introduced</span></td>
-        <td><span class="date-text">21 May 2026</span></td>
-        <td><span class="note-text" title="">—</span></td>
-      </tr></tbody>
+        <tr><td colspan="6"><div class="state-msg"><div class="spinner"></div>Fetching live data from HubSpot…</div></td></tr>
+      </tbody>
     </table>
   </div>
 
   <div style="margin-top:32px;text-align:center;">
-    <span style="font-family:&#39;DM Mono&#39;,monospace;font-size:10px;color:var(--slate);letter-spacing:.1em;">
+    <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--slate);letter-spacing:.1em;">
       XCAP LFR HEATHERBRAE FUND — BOOKBUILD &nbsp;|&nbsp; CONFIDENTIAL — FOR INTERNAL USE ONLY &nbsp;|&nbsp; SOURCE: HUBSPOT CRM
     </span>
   </div>
@@ -991,25 +346,31 @@
     border-radius:14px; padding:36px 40px; max-width:460px; width:90%;
     box-shadow:0 24px 80px rgba(0,0,0,0.5);
   ">
-    <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;">Authentication Required</div>
-    <div style="font-family:&#39;DM Serif Display&#39;,serif;font-size:22px;color:#fff;margin-bottom:8px;">Enter HubSpot Token</div>
+    <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;">Authentication Required</div>
+    <div style="font-family:'DM Serif Display',serif;font-size:22px;color:#fff;margin-bottom:8px;">Enter HubSpot Token</div>
     <div style="font-size:13px;color:#8A9BB5;margin-bottom:24px;line-height:1.6;">
       Enter your HubSpot service key to load live pipeline data. Your token is held in memory for this session only and is never stored in any file.
     </div>
-    <input id="token-input" type="password" placeholder="pat-ap1-..." onkeydown="if(event.key===&#39;Enter&#39;) submitToken()" style="
+    <input
+      id="token-input"
+      type="password"
+      placeholder="pat-ap1-..."
+      onkeydown="if(event.key==='Enter') submitToken()"
+      style="
         width:100%; background:rgba(255,255,255,0.05);
         border:1px solid rgba(201,168,76,0.25); border-radius:8px;
         padding:12px 14px; color:#fff; font-size:13px;
-        font-family:&#39;DM Mono&#39;,monospace; outline:none; margin-bottom:16px;
+        font-family:'DM Mono',monospace; outline:none; margin-bottom:16px;
         box-sizing:border-box;
-      ">
+      "
+    >
     <div id="token-error" style="color:#FF8080;font-size:12px;margin-bottom:12px;display:none;">Could not connect — check your token and try again.</div>
     <button onclick="submitToken()" style="
       width:100%; background:rgba(201,168,76,0.15);
       border:1px solid rgba(201,168,76,0.4); border-radius:8px;
       padding:12px; color:#E8CC80; font-size:13px; font-weight:600;
-      font-family:&#39;DM Sans&#39;,sans-serif; cursor:pointer; transition:all .2s;
-    " onmouseover="this.style.background=&#39;rgba(201,168,76,0.25)&#39;" onmouseout="this.style.background=&#39;rgba(201,168,76,0.15)&#39;">
+      font-family:'DM Sans',sans-serif; cursor:pointer; transition:all .2s;
+    " onmouseover="this.style.background='rgba(201,168,76,0.25)'" onmouseout="this.style.background='rgba(201,168,76,0.15)'">
       Load Dashboard →
     </button>
   </div>
@@ -1622,6 +983,5 @@ async function submitToken() {
 /* ── Init ────────────────────────────────────────────────────── */
 loadData();
 </script>
-
-
-</body></html>
+</body>
+</html>
