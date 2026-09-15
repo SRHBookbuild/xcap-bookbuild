@@ -1,11 +1,10 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>XCap Core Plus Fund — Bookbuild</title>
+<title>XCap Core Plus Income Fund — Bookbuild</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -231,7 +230,7 @@
   <header class="header">
     <div class="header-left">
       <div class="eyebrow">Placement Pipeline · Confidential</div>
-      <h1 class="fund-name">XCap <em>Core Plus</em> Fund</h1>
+      <h1 class="fund-name">XCap <em>Core Plus Income</em> Fund</h1>
       <div class="progress-wrap" id="progress-wrap" style="display:none;min-width:340px;">
         <div class="progress-label">
           <span>Pipeline momentum</span>
@@ -327,7 +326,7 @@
 
   <div style="margin-top:32px;text-align:center;">
     <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--slate);letter-spacing:.1em;">
-      XCAP CORE PLUS FUND — BOOKBUILD &nbsp;|&nbsp; CONFIDENTIAL — FOR INTERNAL USE ONLY &nbsp;|&nbsp; SOURCE: HUBSPOT CRM
+      XCAP CORE PLUS INCOME FUND — BOOKBUILD &nbsp;|&nbsp; CONFIDENTIAL — FOR INTERNAL USE ONLY &nbsp;|&nbsp; SOURCE: HUBSPOT CRM
     </span>
   </div>
 
@@ -502,10 +501,10 @@ async function loadData() {
       const pageData = await pageRes.json();
       const pageResults = pageData.results || [];
 
-      // Filter to only XCap Core Plus Fund deals
+      // Filter to only XCap Core Plus Income Fund deals
       const xcapDeals = pageResults.filter(d => {
         const name = (d.properties.dealname || '').toLowerCase();
-        return name.includes('xcap core plus');
+        return name.includes('core plus income') || name.includes('xmcf');
       });
 
       finalResults = finalResults.concat(xcapDeals);
@@ -986,4 +985,3 @@ loadData();
 </script>
 </body>
 </html>
-
